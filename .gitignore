@@ -1,0 +1,36 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*.so
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.cache/
+.coverage*
+.hypothesis/
+
+# Packaging/build
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Tools
+uv.lock
+.uv-cache/
+.tox/
+.nox/
+
+# Editors/OS
+.DS_Store
+.idea/
+.vscode/
+
+# Env files
+.env
+.env.*

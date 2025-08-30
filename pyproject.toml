@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keepassxc-dbus-mcp"
+version = "0.2.1"
+description = "An MCP server to securely retrieve credentials from KeePassXC's Secret Service."
+requires-python = ">=3.10"
+dependencies = [
+    "secretstorage",
+    "jeepney",
+    "mcp",
+    "pydantic",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "python-dbusmock",
+    "dbus-python",
+]
+
+[project.scripts]
+keepassxc-dbus-mcp = "keepassxc_dbus_mcp.mcp_server:main"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
