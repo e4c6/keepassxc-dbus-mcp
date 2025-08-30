@@ -131,6 +131,7 @@ Two‑item aggregate linked by `KeypairID`.
 - `PREFER_SHM`: Default `true`. When enabled, secrets are written to a temp file on `/dev/shm` (tmpfs) if available, minimizing disk persistence. If `/dev/shm` is not writable, the helper automatically falls back to the system temp directory.
 
 ## Codex CLI / D‑Bus Environment
+- Errors: “No D‑Bus session bus” or “org.freedesktop.secrets not provided by any .service files”
 - Why: the helper connects to KeePassXC through the FreeDesktop.org Secret Service on the user’s D‑Bus session bus. When sessions are launched by tools (e.g., Codex CLI, tmux, systemd units, SSH), `DBUS_SESSION_BUS_ADDRESS` and/or `XDG_RUNTIME_DIR` may be missing. In that case, `secretstorage` cannot reach the bus and you’ll see errors like “No D‑Bus session bus” or “org.freedesktop.secrets not provided by any .service files”.
 - Fix: ensure your agent/CLI session inherits the user bus:
   - `XDG_RUNTIME_DIR=/run/user/<uid>` (1000 on most single‑user desktops)
