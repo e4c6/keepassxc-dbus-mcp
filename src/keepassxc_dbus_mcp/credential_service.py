@@ -19,7 +19,6 @@ class CredentialService:
             self.bus = secretstorage.dbus_init()
         except Exception as e:
             logger.exception("Failed to initialize D-Bus connection")
-            # In a real application, you might want to handle this more gracefully.
             raise
 
     def list_credentials(self) -> list[dict]:
